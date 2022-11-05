@@ -1,7 +1,7 @@
 name: network_graph
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: A Flutter Plugin that displays the Flutter application to display Network Graph.
+version: 0.1.0
+homepage: https://github.com/doch2/network_graph
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
