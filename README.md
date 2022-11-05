@@ -1,39 +1,29 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# network_graph
+[![pub package](https://img.shields.io/pub/v/network_graph.svg)](https://pub.dev/packages/network_graph)  
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A Flutter Plugin that displays the Flutter application to display Network Graph.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+<div align="center"><img style="width:60%;" alt="network_graph Plugin Description Video" src="https://user-images.githubusercontent.com/30923566/200127624-75a7513a-b85f-4780-836c-2714b6cec26c.gif"></div>
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
+## Getting Started
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Dependency
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+First, write the code below in the `pubspec.yaml` file to add this plugin to the project.
+```yaml
+dependencies:
+  network_graph: ^0.1.0
 ```
 
-## Additional information
+This plugin uses the packages listed below. Please refer to it when you proceed with the development.
+1. [arrow_path](https://pub.dev/packages/arrow_path) (2.0.0)
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+
+### Development Guide
+
+Please refer to the source code of the [sample application](https://github.com/doch2/network_graph/tree/main/example) in this plugin.
+
+## Author
+
+[@doch13_](https://github.com/doch2)
