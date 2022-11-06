@@ -39,28 +39,34 @@ class GraphViewPainter extends CustomPainter {
       final toPos = _getCenterPosOfNode(edge.toId);
 
       if ((fromPos != null) && (toPos != null)) {
-        NodeModel node = model.getNodeToUUID(edge.toId)!;
-        int nodeIndex = (model.getNodeList()).indexOf(node);
+        NodeModel toNode = model.getNodeToUUID(edge.toId)!;
+        NodeModel fromNode = model.getNodeToUUID(edge.fromId)!;
+        int nodeIndex = (model.getNodeList()).indexOf(toNode);
         double nodeRadius = model.nodeRadiusList![nodeIndex];
 
         final paint = Paint()
           ..style = PaintingStyle.stroke
-          ..shader = (node.gradient!).createShader((Offset(node.x!, node.y!) & Size(nodeRadius*1.5, nodeRadius*1.5)))
+          ..shader = (toNode.gradient!).createShader((Offset(toNode.x!, toNode.y!) & Size(nodeRadius*1.5, nodeRadius*1.5)))
           ..strokeWidth = 2
           ..isAntiAlias = true;
 
-        final distance =
-            Offset(
-                toPos.dx - fromPos.dx, toPos.dy - fromPos.dy).distance  - (model.nodeRadiusList![nodeIndex]);
-        final theta = atan2((toPos.dy - fromPos.dy), (toPos.dx - fromPos.dx));
-        final targetX = fromPos.dx + distance * cos(theta);
-        final targetY = fromPos.dy + distance * sin(theta);
 
-        var path = Path();
-        path.moveTo(fromPos.dx, fromPos.dy);
-        path.lineTo(targetX, targetY);
-        path = ArrowPath.make(path: path);
-        canvas.drawPath(path, paint);
+        if (model.isShowArrowShape) {
+          final distance =
+              Offset(
+                  toPos.dx - fromPos.dx, toPos.dy - fromPos.dy).distance  - (model.nodeRadiusList![nodeIndex]);
+          final theta = atan2((toPos.dy - fromPos.dy), (toPos.dx - fromPos.dx));
+          final targetX = fromPos.dx + distance * cos(theta);
+          final targetY = fromPos.dy + distance * sin(theta);
+
+          var path = Path();
+          path.moveTo(fromPos.dx, fromPos.dy);
+          path.lineTo(targetX, targetY);
+          path = ArrowPath.make(path: path);
+          canvas.drawPath(path, paint);
+        } else {
+          canvas.drawLine(Offset(toNode.x!, toNode.y!), Offset(fromNode.x!, fromNode.y!), paint);
+        }
       }
     }
   }

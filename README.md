@@ -13,7 +13,7 @@ A Flutter Plugin that displays the Flutter application to display Network Graph.
 First, write the code below in the `pubspec.yaml` file to add this plugin to the project.
 ```yaml
 dependencies:
-  network_graph: ^0.1.0
+  network_graph: ^0.1.1
 ```
 
 This plugin uses the packages listed below. Please refer to it when you proceed with the development.

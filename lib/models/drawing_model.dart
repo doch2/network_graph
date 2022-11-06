@@ -7,7 +7,9 @@ class DrawingModel {
   List<LinearGradient>? nodeColorList;
   List<double>? nodeRadiusList;
 
-  DrawingModel() {
+  bool isShowArrowShape;
+
+  DrawingModel({this.isShowArrowShape = true}) {
     _nodeList.clear();
     _edgeList.clear();
   }

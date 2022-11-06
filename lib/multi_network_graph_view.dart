@@ -1,15 +1,16 @@
 part of network_graph;
 
 class MultiNetworkGraphView extends StatefulWidget {
+  bool isShowArrowShape;
   List<NodeGroup> nodeGroupList;
-  MultiNetworkGraphView({required this.nodeGroupList});
+  MultiNetworkGraphView({this.isShowArrowShape=true, required this.nodeGroupList});
 
   @override
-  State createState() => _MultiNetworkGraphViewState(nodeGroupList: nodeGroupList);
+  State createState() => _MultiNetworkGraphViewState(nodeGroupList: nodeGroupList, isShowArrowShape: isShowArrowShape);
 }
 
 class _MultiNetworkGraphViewState extends State<MultiNetworkGraphView> {
-  final model = DrawingModel();
+  late DrawingModel model;
 
   var offsetX = 0.0;
   var offsetY = 0.0;
@@ -20,7 +21,10 @@ class _MultiNetworkGraphViewState extends State<MultiNetworkGraphView> {
   NodeModel? currentNode;
 
   List<NodeGroup> nodeGroupList;
-  _MultiNetworkGraphViewState({required this.nodeGroupList}){
+  bool isShowArrowShape;
+  _MultiNetworkGraphViewState({required this.nodeGroupList, required this.isShowArrowShape}){
+    model = DrawingModel(isShowArrowShape: isShowArrowShape);
+
     nodeGroupList.forEach((element) {
       model.addNodeList(element.nodeList);
       model.addEdgeList(element.edgeList);

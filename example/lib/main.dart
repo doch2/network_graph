@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: _displayWidth,
           height: _displayHeight,
           child: MultiNetworkGraphView(
+            isShowArrowShape: false,
             nodeGroupList: [
               NodeGroup(
                   title: "Subject",
