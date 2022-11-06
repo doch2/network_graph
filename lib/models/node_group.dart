@@ -33,8 +33,9 @@ class NodeGroup {
       int index = childNodeList.indexOf(element);
 
 
-      double degree = (720 / ((childNodeList.length == 4) ? 5 : childNodeList.length)) * index;
-      double distance = (bigNode.fontSize! * title.length) * (1.2 + (Random().nextInt(2) / 10));
+      double degree = (720 / (childNodeList.length * 1.4)) * index;
+      double distance = getNodeRadius(element.content, element.isBigNode, (element.isBigNode ? bigNode : smallNode).fontSize!) * (2.7 + (Random().nextInt(2) / 10));
+      if (distance < 100) { distance = distance + Random().nextInt(10) + 45; }
 
       Offset childNodeOffset = _getPos(degree: degree, distance: distance, rootOffset: rootOffset);
 

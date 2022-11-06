@@ -103,7 +103,7 @@ class GraphViewPainter extends CustomPainter {
 
     for (final node in model.getNodeList()) {
       TextStyle textStyle = node.isBigNode ? bigNode : smallNode;
-      double radius = (textStyle.fontSize! * node.content.length) / (node.isBigNode ? 2.3 : 2.7);
+      double radius = getNodeRadius(node.content, node.isBigNode, textStyle.fontSize!);
 
       result.add(radius);
     }

@@ -19,3 +19,16 @@ part 'themes/text_theme.dart';
 const uuidObject = Uuid();
 
 getNewUUID() => uuidObject.v4();
+
+getNodeRadius(String nodeContent, bool isBigNode, double fontSize) => (fontSize * nodeContent.length) / (_isStringContainHangeul(nodeContent) ? (isBigNode ? 1.15 : 1.5) : (isBigNode ? 2.3 : 2.7));
+
+bool _isStringContainHangeul(String value) {
+  String patttern =  r"^[ㄱ-ㅎ가-힣]*$" ;
+  RegExp regExp = new RegExp(patttern);
+  if (value.isEmpty) {
+    return false;
+  } else if (!regExp.hasMatch(value)) {
+    return false;
+  }
+  return true;
+}
